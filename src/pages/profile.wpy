@@ -44,7 +44,23 @@ export default class Index extends wepy.page {
   events = {}
 
   onLoad() {
-    console.log('--------------')
+    this.getUserProfile()
+  }
+
+  async getUserProfile() {
+    const self = this
+
+    await wepy.request({
+      url: 'https://api.github.com/users/tangweikun',
+      success: function(res) {
+        const { login, name, avatar } = res.data
+        self.name = name
+        self.avatar = avatar
+        self.account = login
+        self.$apply()
+        console.log(res)
+      }
+    })
   }
 }
 </script>
