@@ -1,0 +1,50 @@
+<style lang="less">
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+</style>
+
+<template>
+  <view class="container">
+    <view class="title" slot="title">{{account}}</view>
+    <view class="title" slot="title">{{name}}</view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Profile'
+  }
+
+  components = {}
+
+  data = {
+    account: 'tangweikun_',
+    name: '汤伟坤_',
+    avatar: '_'
+  }
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {
+    console.log('--------------')
+  }
+}
+</script>

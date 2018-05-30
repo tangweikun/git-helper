@@ -21,7 +21,7 @@ setStore(store)
 
 export default class extends wepy.app {
   config = {
-    pages: ['pages/index'],
+    pages: ['pages/index', 'pages/profile'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -34,6 +34,12 @@ export default class extends wepy.app {
       backgroundColor: '#ffffff',
       borderStyle: 'black',
       list: [
+        {
+          pagePath: 'pages/profile',
+          text: 'Profile',
+          iconPath: 'images/icon_info.png',
+          selectedIconPath: 'images/icon_info_active.png'
+        },
         {
           pagePath: 'pages/index',
           text: 'News',
@@ -51,12 +57,6 @@ export default class extends wepy.app {
           text: 'Starred',
           iconPath: 'images/icon_shop_cart.png',
           selectedIconPath: 'images/icon_shop_cart_active.png'
-        },
-        {
-          pagePath: 'pages/index',
-          text: 'Profile',
-          iconPath: 'images/icon_info.png',
-          selectedIconPath: 'images/icon_info_active.png'
         }
       ]
     }
