@@ -46,7 +46,7 @@ export default class Index extends wepy.page {
   data = {
     profileInfo: {
       account: 'tangweikun_',
-      name: '汤伟坤_',
+      name: '_汤伟坤_',
       avatar: 'https://avatars0.githubusercontent.com/u/13361639?v=4',
       followers: 0,
       following: 0
@@ -65,7 +65,7 @@ export default class Index extends wepy.page {
     const self = this
 
     await wepy.request({
-      url: 'https://api.github.com/users/tangweikun',
+      url: 'https://git.tangweikun.cn/users/tangweikun',
       success: function(res) {
         const {
           login: account,
