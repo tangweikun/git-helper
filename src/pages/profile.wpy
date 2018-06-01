@@ -20,6 +20,29 @@
   border-radius: 50%;
   border: 5rpx solid #ffffff;
 }
+
+.profile-follower {
+  height: 100rpx;
+  width: 100%;
+  background: #ffffff;
+  color: #586069;
+  font-size: 30rpx;
+  display: flex;
+  // align-items: center;
+  border-bottom: 1rpx solid #d1d5da;
+
+  .left {
+    padding-top: 10rpx;
+    padding-left: 20rpx;
+    flex: 1;
+    border-right: 1rpx solid #d1d5da;
+  }
+  .right {
+    padding-top: 10rpx;
+    padding-left: 20rpx;
+    flex: 1;
+  }
+}
 </style>
 
 <template>
@@ -29,12 +52,24 @@
       <view>{{ profileInfo.account }}</view>
       <view>{{ profileInfo.name }}</view>
     </view>
+
+    <view class="profile-follower">
+      <view class="left">
+        <view>22</view>
+        <view>Followers</view>
+      </view>
+      <view class="right"> 
+        <view>22</view>
+        <view>Following</view>
+      </view>
+    </view>
     
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
+import { userUrl } from '../env.js'
 
 export default class Index extends wepy.page {
   config = {
@@ -65,7 +100,7 @@ export default class Index extends wepy.page {
     const self = this
 
     await wepy.request({
-      url: 'https://git.tangweikun.cn/users/tangweikun',
+      url: userUrl,
       success: function(res) {
         const {
           login: account,
