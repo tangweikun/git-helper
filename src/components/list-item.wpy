@@ -1,0 +1,59 @@
+<style lang="less">
+.list-item-wrapper {
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ffffff;
+  justify-content: center;
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120rpx;
+
+    image {
+      width: 50rpx;
+      height: 50rpx;
+    }
+  }
+  .right {
+    box-sizing: border-box;
+    display: flex;
+    width: 650rpx;
+    padding-right: 30rpx;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #d1d5da;
+
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    image {
+      width: 40rpx;
+      height: 40rpx;
+    }
+  }
+}
+</style>
+
+<template>
+  <view class="list-item-wrapper">
+    <view class="left">
+      <image src="../images/icon_home.png" />
+    </view>
+    <view class="right">
+      <view>Events</view>
+      <view class="image-wrapper">
+        <image src="../images/icon_home.png" />
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class ListItem extends wepy.component {}
+</script>

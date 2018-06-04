@@ -28,7 +28,6 @@
   color: #586069;
   font-size: 30rpx;
   display: flex;
-  // align-items: center;
   border-bottom: 1rpx solid #d1d5da;
 
   .left {
@@ -55,20 +54,23 @@
 
     <view class="profile-follower">
       <view class="left">
-        <view>22</view>
+        <view>{{ profileInfo.followers }}</view>
         <view>Followers</view>
       </view>
       <view class="right"> 
-        <view>22</view>
+        <view>{{ profileInfo.following }}</view>
         <view>Following</view>
       </view>
     </view>
+
+    <listItem />
     
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
+import ListItem from '@/components/list-item'
 import { userUrl } from '../env.js'
 
 export default class Index extends wepy.page {
@@ -76,7 +78,9 @@ export default class Index extends wepy.page {
     navigationBarTitleText: 'Profile'
   }
 
-  components = {}
+  components = {
+    listItem: ListItem
+  }
 
   data = {
     profileInfo: {
