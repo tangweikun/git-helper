@@ -1,8 +1,7 @@
 <style lang="less">
-.container {
-  box-sizing: border-box;
+page {
+  background: #f8f8ff;
 }
-
 .profile-top-wrapper {
   display: flex;
   flex-direction: column;
@@ -42,6 +41,12 @@
     flex: 1;
   }
 }
+
+.repeat-wrapper {
+  margin-top: 40rpx;
+  border-top: 1rpx solid #d1d5da;
+  border-bottom: 1rpx solid #d1d5da;
+}
 </style>
 
 <template>
@@ -63,8 +68,13 @@
       </view>
     </view>
 
-    <listItem />
-    
+    <view class="repeat-wrapper">
+      <repeat for="{{list}}" index="index" item="item" key="key">
+        <listItem wx:if="{{list.length - 1 !== index}}" :text="item" :withoutBorder="false" />
+        <listItem wx:if="{{list.length - 1 === index}}" :text="item" :withoutBorder="true" />
+      </repeat>
+    </view>
+
   </view>
 </template>
 
@@ -89,7 +99,8 @@ export default class Index extends wepy.page {
       avatar: 'https://avatars0.githubusercontent.com/u/13361639?v=4',
       followers: 0,
       following: 0
-    }
+    },
+    list: ['Events', 'Repositories', 'Gists']
   }
 
   methods = {}

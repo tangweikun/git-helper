@@ -43,12 +43,20 @@
     <view class="left">
       <image src="../images/icon_home.png" />
     </view>
-    <view class="right">
-      <view>Events</view>
+
+    <view wx:if="{{withoutBorder}}" class="right" style="border-bottom:none">
+      <view>{{text}}</view>
       <view class="image-wrapper">
         <image src="../images/icon_home.png" />
       </view>
     </view>
+    <view wx:else class="right">
+      <view>{{text}}</view>
+      <view class="image-wrapper">
+        <image src="../images/icon_home.png" />
+      </view>
+    </view>
+
   </view>
 </template>
 
