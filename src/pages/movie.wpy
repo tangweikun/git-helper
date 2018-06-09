@@ -129,6 +129,12 @@ export default class Index extends wepy.page {
     this.getUserProfile()
     wepy.stopPullDownRefresh()
   }
+  onShareAppMessage(res) {
+    return {
+      title: '猫眼实时票房',
+      path: '/pages/movie'
+    }
+  }
 
   async getUserProfile() {
     const self = this
