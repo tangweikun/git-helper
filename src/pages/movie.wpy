@@ -41,8 +41,12 @@ page {
   width: 155rpx;
   text-align: center;
   align-self: center;
+}
+
+.orange {
   color: #e98162;
 }
+
 .cell-3 {
   width: 125rpx;
   text-align: center;
@@ -85,7 +89,7 @@ page {
               {{item.sumBoxInfo}}
             </view>
           </view>
-          <view class='cell-2'>{{item.boxInfo}}</view>
+          <view class='cell-2 orange' >{{item.boxInfo}}</view>
           <view class='cell-3'>{{item.boxRate}}</view>
           <view class='cell-4'>{{item.boxRate}}</view>
           <view class='cell-5'>{{item.avgSeatView}}</view>
