@@ -21,45 +21,46 @@ setStore(store)
 
 export default class extends wepy.app {
   config = {
-    pages: ['pages/index', 'pages/profile'],
+    pages: ['pages/movie'],
+    // pages: ['pages/index', 'pages/profile', 'pages/movie'],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
-    },
-    tabBar: {
-      color: '#999999',
-      selectedColor: '#ff6a3c',
-      backgroundColor: '#ffffff',
-      borderStyle: 'black',
-      list: [
-        {
-          pagePath: 'pages/profile',
-          text: 'Profile',
-          iconPath: 'images/icon_info.png',
-          selectedIconPath: 'images/icon_info_active.png'
-        },
-        {
-          pagePath: 'pages/index',
-          text: 'News',
-          iconPath: 'images/icon_home.png',
-          selectedIconPath: 'images/icon_home_active.png'
-        },
-        {
-          pagePath: 'pages/index',
-          text: 'Trending',
-          iconPath: 'images/icon_classify.png',
-          selectedIconPath: 'images/icon_classify_active.png'
-        },
-        {
-          pagePath: 'pages/index',
-          text: 'Starred',
-          iconPath: 'images/icon_shop_cart.png',
-          selectedIconPath: 'images/icon_shop_cart_active.png'
-        }
-      ]
+      // backgroundTextStyle: 'light',
+      // navigationBarBackgroundColor: '#fff',
+      // navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: '#ffffff'
     }
+    // tabBar: {
+    //   color: '#999999',
+    //   selectedColor: '#ff6a3c',
+    //   backgroundColor: '#ffffff',
+    //   borderStyle: 'black',
+    //   list: [
+    //     {
+    //       pagePath: 'pages/profile',
+    //       text: 'Profile',
+    //       iconPath: 'images/icon_info.png',
+    //       selectedIconPath: 'images/icon_info_active.png'
+    //     },
+    //     {
+    //       pagePath: 'pages/movie',
+    //       text: '猫眼实时票房',
+    //       iconPath: 'images/icon_home.png',
+    //       selectedIconPath: 'images/icon_home_active.png'
+    //     },
+    //     {
+    //       pagePath: 'pages/index',
+    //       text: 'Trending',
+    //       iconPath: 'images/icon_classify.png',
+    //       selectedIconPath: 'images/icon_classify_active.png'
+    //     },
+    //     {
+    //       pagePath: 'pages/index',
+    //       text: 'Starred',
+    //       iconPath: 'images/icon_shop_cart.png',
+    //       selectedIconPath: 'images/icon_shop_cart_active.png'
+    //     }
+    //   ]
+    // }
   }
 
   globalData = {

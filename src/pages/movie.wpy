@@ -1,0 +1,145 @@
+<style lang="less">
+page {
+  background: #f8f8ff;
+}
+
+.row-1 {
+  padding: 10rpx 0 10rpx 10rpx;
+  background: #535265;
+  color: #ffffff;
+  display: flex;
+  font-size: 26rpx;
+  min-height: 80rpx;
+  justify-content: center;
+}
+
+.row-2 {
+  padding: 10rpx 0 10rpx 15rpx;
+  background: #373743;
+  color: #ffffff;
+  display: flex;
+  font-size: 26rpx;
+  min-height: 80rpx;
+  justify-content: center;
+}
+
+.cell-1 {
+  width: 225rpx;
+  align-self: center;
+}
+
+.small-1 {
+  font-size: 22rpx;
+  color: #373742;
+}
+.small-2 {
+  font-size: 22rpx;
+  color: #525263;
+}
+
+.cell-2 {
+  width: 155rpx;
+  text-align: center;
+  align-self: center;
+  color: #e98162;
+}
+.cell-3 {
+  width: 125rpx;
+  text-align: center;
+  align-self: center;
+}
+.cell-4 {
+  width: 125rpx;
+  text-align: center;
+  align-self: center;
+}
+.cell-5 {
+  width: 110rpx;
+  text-align: center;
+  align-self: center;
+}
+
+.repeat-wrapper {
+  // margin-top: 40rpx;
+  // border-top: 1rpx solid #d1d5da;
+  // border-bottom: 1rpx solid #d1d5da;
+}
+</style>
+
+<template>
+  <view class="container">
+    <view class="{{index % 2 ? 'row-1' : 'row-2'}}">
+      <view class='cell-1'>片名</view>
+      <view class='cell-2'>实时票房</view>
+      <view class='cell-3'>票房占比</view>
+      <view class='cell-4'>排片占比</view>
+      <view class='cell-5'>上座率</view>
+    </view>
+    <view class="repeat-wrapper">
+      <repeat for="{{list}}" index="index" item="item" key="key">
+        <view class="{{index % 2 ? 'row-2' : 'row-1'}}">
+          <view class='cell-1'>
+            <view>{{item.movieName}}</view>
+            <view class="{{index % 2 ? 'small-2' : 'small-1'}}">
+              {{item.releaseInfo}}
+              {{item.sumBoxInfo}}
+            </view>
+          </view>
+          <view class='cell-2'>{{item.boxInfo}}</view>
+          <view class='cell-3'>{{item.boxRate}}</view>
+          <view class='cell-4'>{{item.boxRate}}</view>
+          <view class='cell-5'>{{item.avgSeatView}}</view>
+        </view>
+      </repeat>
+    </view>
+
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import ListItem from '@/components/list-item'
+
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '猫眼实时票房'
+  }
+
+  components = {
+    listItem: ListItem
+  }
+
+  data = {
+    list: [],
+    queryDate: 3,
+    totalBox: 3,
+    totalBoxUnit: 3
+  }
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {
+    this.getUserProfile()
+  }
+
+  async getUserProfile() {
+    const self = this
+
+    await wepy.request({
+      url: 'https://box.maoyan.com/promovie/api/box/second.json',
+      success: function(res) {
+        const { list, queryDate, totalBox, totalBoxUnit } = res.data.data
+        self.list = list
+        self.queryDate = queryDate
+        self.totalBox = totalBox
+        self.totalBoxUnit = totalBoxUnit
+
+        self.$apply()
+        console.log(res)
+      }
+    })
+  }
+}
+</script>
