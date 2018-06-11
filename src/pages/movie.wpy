@@ -91,7 +91,7 @@ page {
           </view>
           <view class='cell-2 orange' >{{item.boxInfo}}</view>
           <view class='cell-3'>{{item.boxRate}}</view>
-          <view class='cell-4'>{{item.boxRate}}</view>
+          <view class='cell-4'>{{item.showRate}}</view>
           <view class='cell-5'>{{item.avgSeatView}}</view>
         </view>
       </repeat>
